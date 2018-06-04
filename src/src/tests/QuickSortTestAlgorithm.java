@@ -17,7 +17,7 @@ public class QuickSortTestAlgorithm {
         int[] expectedList = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         QuickSort qs = new QuickSort();
-        qs.sort(list, 0, (list.length-1));
+        qs.sort(list);
 
        assertArrayEquals(expectedList, list);
        assertEquals(1, list[0]);
@@ -30,7 +30,7 @@ public class QuickSortTestAlgorithm {
         int[] expectedList = {1, 2, 3, 4, 5, 6};
 
         QuickSort qs = new QuickSort();
-        qs.sort(list, 0, (list.length - 1));
+        qs.sort(list);
 
         assertArrayEquals(expectedList, list);
         assertEquals(1, list[0]);

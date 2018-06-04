@@ -2,7 +2,7 @@ package sortingAlg;
 
 //import java.util.ArrayList;
 
-public class QuickSort {
+public class QuickSort extends Sort {
 
     //returns the pivot index
     public int partition(int list[], int low, int high) {
@@ -27,6 +27,10 @@ public class QuickSort {
         return (i+1);
     }
 
+    @Override
+    public void sort(int list[]) {
+        sort(list, 0, (list.length - 1));
+    }
     public void sort(int list[], int low, int high) {
 
         if (low < high) {

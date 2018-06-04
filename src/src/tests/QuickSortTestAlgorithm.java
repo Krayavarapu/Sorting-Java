@@ -8,7 +8,7 @@ import static org.junit.Assert.assertArrayEquals;
 //import java.util.ArrayList;
 import sortingAlg.QuickSort;
 
-public class QuickSortTest {
+public class QuickSortTestAlgorithm {
 
     @Test
     public void testListOfUnOrderedValues() {

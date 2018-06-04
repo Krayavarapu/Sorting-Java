@@ -2,61 +2,38 @@ package tests;
 
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import sortingAlg.QuickSort;
 
 public class QuickSortTest {
 
     @Test
     public void testListOfUnOrderedValues() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(6);
-        list.add(3);
-        list.add(8);
-        list.add(4);
-        list.add(2);
-        list.add(7);
-        list.add(1);
 
-        ArrayList<Integer> expectedList = new ArrayList<Integer>();
-        expectedList.add(1);
-        expectedList.add(2);
-        expectedList.add(3);
-        expectedList.add(4);
-        expectedList.add(6);
-        expectedList.add(7);
-        expectedList.add(8);
+        int[] list = {8, 4, 9, 1, 2, 3, 6, 5, 7};
+        int[] expectedList = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         QuickSort qs = new QuickSort();
-        qs.sort(list, 0, 7);
+        qs.sort(list, 0, (list.length-1));
 
-        for (int i = 0; i < list.size(); i++) {
-            assertTrue(list.get(i) == expectedList.get(i));
-        }
+       assertArrayEquals(expectedList, list);
+       assertEquals(1, list[0]);
+
     }
 
     @Test
     public void testListOrderedValues() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-
-        ArrayList<Integer> expectedList = new ArrayList<Integer>();
-        expectedList.add(1);
-        expectedList.add(2);
-        expectedList.add(3);
-        expectedList.add(4);
+        int[] list = {1, 2, 3, 4, 5, 6};
+        int[] expectedList = {1, 2, 3, 4, 5, 6};
 
         QuickSort qs = new QuickSort();
-        qs.sort(list, 0, 3);
+        qs.sort(list, 0, (list.length - 1));
 
-        for (int i = 0; i < list.size(); i++) {
-            assertTrue(list.get(i) == expectedList.get(i));
-        }
+        assertArrayEquals(expectedList, list);
+        assertEquals(1, list[0]);
 
     }
 

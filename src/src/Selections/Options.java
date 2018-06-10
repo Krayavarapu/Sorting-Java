@@ -7,7 +7,7 @@ public class Options {
     public Options(int arr[]) {
         val = arr;
         chosen = false;
-        sendToGivenAlgorithm(arr);
+        //sendToGivenAlgorithm(arr);
     }
 
     public void sendToGivenAlgorithm(int arr[]) {}

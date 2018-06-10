@@ -7,6 +7,7 @@ public class OptionTwo extends Options{
 
     public OptionTwo(int[] arr) {
         super(arr);
+        sendToGivenAlgorithm(arr);
     }
 
     @Override

@@ -6,6 +6,7 @@ public class OptionThree extends Options{
 
     public OptionThree(int arr[]) {
         super(arr);
+        sendToGivenAlgorithm(arr);
     }
 
     @Override

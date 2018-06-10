@@ -1,17 +1,18 @@
 package Selections;
 
-import sortingAlg.QuickSort;
+import sortingAlg.HeapSort;
+import sortingAlg.InsertionSort;
 
-public class OptionThree extends Options{
+public class HeapSortOption extends Options{
 
-    public OptionThree(int arr[]) {
+    public HeapSortOption(int[] arr) {
         super(arr);
         sendToGivenAlgorithm(arr);
     }
 
     @Override
     public void sendToGivenAlgorithm(int arr[]) {
-        QuickSort newSort = new QuickSort();
+        HeapSort newSort = new HeapSort();
         newSort.sort(arr);
     }
 
@@ -20,5 +21,4 @@ public class OptionThree extends Options{
         chosen = true;
         return chosen;
     }
-
 }

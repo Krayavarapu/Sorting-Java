@@ -2,9 +2,9 @@ package Selections;
 
 import sortingAlg.InsertionSort;
 
-public class OptionOne extends Options{
+public class InsertionSortOption extends Options{
 
-    public OptionOne(int arr[]) {
+    public InsertionSortOption(int arr[]) {
         super(arr);
         sendToGivenAlgorithm(arr);
     }

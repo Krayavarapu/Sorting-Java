@@ -4,31 +4,37 @@ import java.io.IOException;
 //import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.ArrayList;
+import java.util.List;
+
 
 //import static java.lang.System.arraycopy;
 
 
 public class FileReader {
 
-    private String arr[];
-
+    private List<String[]> list;
+    //protected String arr[] = {};
     protected int numArray[];
+    protected ArrayList<String> listOfVals;
 
     public FileReader(String file) {
         readFile(file);
     }
 
     public void readFile(String file) {
-        String val[] = {};
+        list = new ArrayList<>();
         try {
             for (String line : Files.readAllLines(Paths.get(file))) {
-                arr = line.split("\"[^\\\\d]\"");
-                val = Arrays.copyOf(val, val.length + arr.length);
-                System.arraycopy(arr, 0, val, val.length, arr.length);
+               String[] arr = line.split(",");
+//                arr = Arrays.copyOf(arr, arr.length + val.length);
+//                System.arraycopy(val, 0, arr, arr.length, val.length);
+                list.add(arr);
             }
 
-            convertStringToIntArray(val);
+            getFullListOfValues(list);
         }
 
         catch(IOException ex) {
@@ -37,17 +43,32 @@ public class FileReader {
 
     }
 
-    public void convertStringToIntArray(String arr[]) {
+    public void getFullListOfValues(List<String[]> list) {
+        listOfVals = new ArrayList<>();
 
-        numArray = new int[arr.length];
+        for (String[] line : list) {
+            for (String val : line) {
+                listOfVals.add(val);
+            }
+        }
+    }
 
-        for (int i = 0; i < arr.length; i++) {
-            int num = Integer.parseInt(arr[i]);
+    public void convertStringToIntArray(ArrayList<String> list) {
+
+        numArray = new int[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            String val = list.get(i);
+            int num = Integer.parseInt(val);
             numArray[i] = num;
         }
 
         //return numArray;
 
+    }
+
+    public ArrayList<String> getListOfVals() {
+        return listOfVals;
     }
 
     public int[] getNumArray() {

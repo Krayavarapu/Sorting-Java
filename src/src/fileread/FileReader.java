@@ -13,6 +13,8 @@ public class FileReader {
 
     private String arr[];
 
+    protected int numArray[];
+
     public FileReader(String file) {
         readFile(file);
     }
@@ -35,16 +37,22 @@ public class FileReader {
 
     }
 
-    public int[] convertStringToIntArray(String arr[]) {
+    public void convertStringToIntArray(String arr[]) {
 
-        int numArray[] = new int[arr.length];
+        numArray = new int[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
             int num = Integer.parseInt(arr[i]);
-            num = numArray[i];
+            numArray[i] = num;
         }
 
-        return numArray;
+        //return numArray;
 
     }
+
+    public int[] getNumArray() {
+        return numArray;
+    }
+
+
 }

@@ -5,7 +5,7 @@ package sortingAlg;
 public class InsertionSort extends Sort {
 
     @Override
-    public void sort(int list[]) {
+    public int[] sort(int list[]) {
         //int low = 0;
         int high = list.length;
         for (int i = 1; i < high; i++) {
@@ -18,6 +18,8 @@ public class InsertionSort extends Sort {
             }
             list[j+1] = key;
         }
+
+        return list;
 
     }
 

@@ -28,8 +28,11 @@ public class QuickSort extends Sort {
     }
 
     @Override
-    public void sort(int list[]) {
+    public int[] sort(int list[]) {
+
         sort(list, 0, (list.length - 1));
+
+        return list;
     }
     public void sort(int list[], int low, int high) {
 

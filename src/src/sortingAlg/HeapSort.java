@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class HeapSort extends Sort {
 
     @Override
-    public void sort(int arr[]) {
+    public int[] sort(int arr[]) {
 
         int x = arr.length;
 
@@ -21,6 +21,8 @@ public class HeapSort extends Sort {
 
             heapify(arr, i, 0);
         }
+
+        return arr;
     }
 
     public void heapify(int arr[], int n, int i) {

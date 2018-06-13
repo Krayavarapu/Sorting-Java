@@ -8,6 +8,7 @@ import java.util.ArrayList;
 //import java.util.Arrays;
 //import java.util.ArrayList;
 import java.util.List;
+import Selections.*;
 
 
 //import static java.lang.System.arraycopy;
@@ -16,6 +17,7 @@ import java.util.List;
 public class FileReader {
 
     private List<String[]> list;
+    private Options option;
     protected int numArray[];
     protected ArrayList<String> listOfVals;
 
@@ -68,14 +70,17 @@ public class FileReader {
 
     public void sendToInsertionSortOption() {
 
+        option = new InsertionSortOption(getNumArray());
     }
 
     public void sendToHeapSortOption() {
 
+        option = new HeapSortOption(getNumArray());
     }
 
     public void sendToQuickSortOption() {
-        
+
+        option = new QuickSortOption(getNumArray());
     }
 
     public ArrayList<String> getListOfVals() {

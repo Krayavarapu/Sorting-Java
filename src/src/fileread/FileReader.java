@@ -16,7 +16,6 @@ import java.util.List;
 public class FileReader {
 
     private List<String[]> list;
-    //protected String arr[] = {};
     protected int numArray[];
     protected ArrayList<String> listOfVals;
 
@@ -65,6 +64,18 @@ public class FileReader {
 
         //return numArray;
 
+    }
+
+    public void sendToInsertionSortOption() {
+
+    }
+
+    public void sendToHeapSortOption() {
+
+    }
+
+    public void sendToQuickSortOption() {
+        
     }
 
     public ArrayList<String> getListOfVals() {

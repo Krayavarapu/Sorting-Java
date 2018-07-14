@@ -1,6 +1,6 @@
 package sortingAlg;
 
-//import java.util.ArrayList;
+import fileread.FileWrite;
 
 public class InsertionSort extends Sort {
 
@@ -19,8 +19,14 @@ public class InsertionSort extends Sort {
             list[j+1] = key;
         }
 
+        sendToFileWrite(list);
+
         return list;
 
+    }
+
+    public void sendToFileWrite(int arr[]) {
+        FileWrite fw = new FileWrite(arr);
     }
 
 }

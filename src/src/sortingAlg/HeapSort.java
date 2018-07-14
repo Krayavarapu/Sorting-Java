@@ -2,6 +2,8 @@ package sortingAlg;
 
 import java.util.ArrayList;
 
+import fileread.FileWrite;
+
 public class HeapSort extends Sort {
 
     @Override
@@ -45,5 +47,9 @@ public class HeapSort extends Sort {
 
             heapify(arr, n, largestVal);
         }
+    }
+
+    public void sendToFileWrite(int arr[]) {
+        FileWrite fw = new FileWrite(arr);
     }
 }

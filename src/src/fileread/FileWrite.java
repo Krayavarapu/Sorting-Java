@@ -4,6 +4,7 @@ package fileread;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+//import java.io.File;
 import java.io.UnsupportedEncodingException;
 
 
@@ -21,8 +22,6 @@ public class FileWrite {
     }
 
     public PrintWriter writeToFile(int[] arr) {
-
-        //File fileWrite = new File();
         try {
             pw = new PrintWriter("Sorted_Values.txt", "UTF-8");
             for (int i = 0; i < arr.length; i++) {
@@ -36,6 +35,7 @@ public class FileWrite {
 
         return pw;
     }
+
 
 
 

@@ -2,6 +2,8 @@ package sortingAlg;
 
 //import java.util.ArrayList;
 
+import fileread.FileWrite;
+
 public class QuickSort extends Sort {
 
     //returns the pivot index
@@ -32,6 +34,8 @@ public class QuickSort extends Sort {
 
         sort(list, 0, (list.length - 1));
 
+        sendToFileWrtie(list);
+
         return list;
     }
     public void sort(int list[], int low, int high) {
@@ -46,28 +50,9 @@ public class QuickSort extends Sort {
         //return list;
     }
 
-    //returns the pivot index
-//    public int partition(int list[], int low, int high) {
-//
-//        int pivot = list[high];
-//        int i = (low - 1);
-//
-//        for (int j = low; j < high; j++) {
-//            if (list[j] <= pivot) {
-//                i++;
-//
-//                int temp = list[i];
-//                list[i] = list[j];
-//                list[j] = temp;
-//            }
-//        }
-//
-//        int temp = list[i+1];
-//        list[i+1] = list[high];
-//        list[high] = temp;
-//
-//        return (i+1);
-//    }
+    public void sendToFileWrtie(int arr[]) {
+        FileWrite fw = new FileWrite(arr);
+    }
 
 
 }

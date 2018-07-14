@@ -4,6 +4,7 @@ import fileread.FileReader;
 import org.junit.Test;
 
 //import java.lang.reflect.Array;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -14,34 +15,39 @@ public class test_read_file {
 
     //This checks if all neccesary String values are properly transferred to List of String(Only when regex is ',')
     @Test
-    public void checkIfStringsFromValTransfer() {
-        String file = "extraneous_files/numbers.txt.txt";
+    public void checkFileWithNumString() throws IOException {
+        String file = "extraneous_files/numbers.txt";
 
         FileReader fr = new FileReader(file);
         ArrayList<String> list = fr.getListOfVals();
-        String expectedArr[] = {"1", "3", "7", "2", "4", "6", "5"};
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(expectedArr[i], list.get(i));
-        }
+        ArrayList<String> expectedList = new ArrayList<>();
+        list.add("1");
+        list.add("3");
+        list.add("7");
+        list.add("2");
+        list.add("4");
+        list.add("6");
+        list.add("5");
+
+        assertEquals(expectedList, list);
 
     }
 
     //This checks to see when a file with no numerical strings is read and transferred to List of String(Only when regex is ',')
     @Test
-    public void checkFileWithOnlyNonNumStrings() {
-        String file = "extraneous_file/noNumbers.txt";
+    public void checkFileWithOnlyNonNumStrings() throws IOException {
+        String file = "noNumbers.txt";
 
         FileReader fr = new FileReader(file);
         ArrayList<String> list = fr.getListOfVals();
-        String extpectedArr[] = {};
+        ArrayList<String> expectedList = new ArrayList<>();
 
-       // assertEquals(0, list.size());
-        assertTrue(list.size() == extpectedArr.length);
+        assertEquals(expectedList, list);
     }
 
     @Test
-    public void checkIfFileIsReadProperly() {
-        String file = "extraneous_files/numbers.txt";
+    public void checkIfFileIsReadProperly() throws IOException{
+        String file = "numbers.txt";
 
         FileReader fr = new FileReader(file);
         int arr[] = fr.getNumArray();
@@ -52,8 +58,8 @@ public class test_read_file {
     }
 
     @Test
-    public void checkIfFileIsReadEvenWithNonNumFile() {
-        String file = "extraneous_files/noNumbers.txt";
+    public void checkIfFileIsReadEvenWithNonNumFile() throws IOException {
+        String file = "noNumbers.txt";
 
         FileReader fr = new FileReader(file);
         int arr[] = fr.getNumArray();
@@ -61,6 +67,5 @@ public class test_read_file {
 
         assertArrayEquals(expectedArr, arr);
     }
-
 
 }

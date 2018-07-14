@@ -16,23 +16,31 @@ import Selections.*;
 
 public class FileReader {
 
-    private List<String[]> list;
+    //private List<String[]> list;
     private Options option;
     protected int numArray[];
     protected ArrayList<String> listOfVals;
 
     public FileReader(String file) {
         readFile(file);
+        listOfVals = new ArrayList<>();
+        numArray = new int[listOfVals.size()];
     }
 
     public void readFile(String file) {
-        list = new ArrayList<>();
+        List<String[]> list = new ArrayList<>();
         try {
             for (String line : Files.readAllLines(Paths.get(file))) {
-               String[] arr = line.split(",");
+                if (line.length() > 0) {
+                    String[] arr = line.split(",");
 //                arr = Arrays.copyOf(arr, arr.length + val.length);
 //                System.arraycopy(val, 0, arr, arr.length, val.length);
-                list.add(arr);
+                    list.add(arr);
+                }
+                else if (line.length() == 0) {
+                    String[] arr = {};
+                    list.add(arr);
+                }
             }
 
             getFullListOfValues(list);
@@ -45,18 +53,17 @@ public class FileReader {
     }
 
     public void getFullListOfValues(List<String[]> list) {
-        listOfVals = new ArrayList<>();
 
         for (String[] line : list) {
             for (String val : line) {
                 listOfVals.add(val);
             }
         }
+
+        convertStringToIntArray(listOfVals);
     }
 
     public void convertStringToIntArray(ArrayList<String> list) {
-
-        numArray = new int[list.size()];
 
         for (int i = 0; i < list.size(); i++) {
             String val = list.get(i);

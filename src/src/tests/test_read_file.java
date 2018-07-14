@@ -59,7 +59,7 @@ public class test_read_file {
 
     @Test
     public void checkIfFileIsReadEvenWithNonNumFile() throws IOException {
-        String file = "noNumbers.txt";
+        String file = "extraneous_files/noNumbers.txt";
 
         FileReader fr = new FileReader(file);
         int arr[] = fr.getNumArray();

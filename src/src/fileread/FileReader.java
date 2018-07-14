@@ -18,8 +18,8 @@ public class FileReader {
 
     //private List<String[]> list;
     private Options option;
-    protected int numArray[];
-    protected ArrayList<String> listOfVals;
+    private int numArray[];
+    private ArrayList<String> listOfVals;
 
     public FileReader(String file) {
         readFile(file);
@@ -27,6 +27,9 @@ public class FileReader {
         numArray = new int[listOfVals.size()];
     }
 
+
+    //Implementation of reading File could be done wrong
+    //Reimplement this
     public void readFile(String file) {
         List<String[]> list = new ArrayList<>();
         try {
@@ -37,7 +40,7 @@ public class FileReader {
 //                System.arraycopy(val, 0, arr, arr.length, val.length);
                     list.add(arr);
                 }
-                else if (line.length() == 0) {
+                else  {
                     String[] arr = {};
                     list.add(arr);
                 }
